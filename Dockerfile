@@ -39,8 +39,12 @@ RUN apt-get update \
 # libxml2-dev provides xml2-config which is used by R:XML
 RUN apt-get update \
   && apt-get install --yes --no-install-recommends \
+    curl \
+    libcurl4-openssl-dev \
     libssl-dev \
-    libxml2-dev
+    libxml2-dev \
+    r-cran-rstan \
+    r-cran-catools
 
 # setup reproducibility in R using a fixed CRAN-like repo
 #RUN echo "options(repos = c(CRAN = '${R_CRAN_REPO}'))" >> /usr/local/lib/R/etc/Rprofile.site
